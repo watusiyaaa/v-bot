@@ -6,19 +6,12 @@ const client = new Client(
         GatewayIntentBits.GuildMessages
         ] 
     });
-
+ 
+    registerCommands(client);
+    
 
 function registerCommands(client) {
     client.on(Events.InteractionCreate, async interaction => {
-
-        if (!client.application) {
-            console.error("Client application is null. Commands cannot be registered.");
-            return;
-        }
-        
-        client.application.commands.set(commands)
-            .then(() => console.log('Commands registered'))
-            .catch(console.error);
 
         if (!interaction.isCommand()) return;
 
@@ -58,5 +51,4 @@ function getOrdinalSuffix(n) {
     return n + (s[(v - 20) % 10] || s[v] || s[0]);
 }
 
-registerCommands(client);
 module.exports = { registerCommands };

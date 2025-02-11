@@ -25,6 +25,20 @@
        registerCommands();  // This should be called inside the ready event
    });
    
+    function registerCommands(client) {
+        client.on(Events.InteractionCreate, async interaction => {
+            // Your handling code
+            if (!client.application) {
+                console.error("Client application is null. Commands cannot be registered.");
+                return;
+            }
+            
+            client.application.commands.set(commands)
+                .then(() => console.log('Commands registered'))
+                .catch(console.error);
+        });
+    }
+
   // Telling if the bot's online
   client.once(Events.ClientReady, async (c) => {
       console.log(`${c.user?.tag} is now online!`);
