@@ -16,7 +16,7 @@
           GatewayIntentBits.GuildMessageReactions,
           GatewayIntentBits.GuildMembers,
           GatewayIntentBits.MessageContent,
-          Intents.FLAGS.GUILDS
+          GatewayIntentBits.Intents.FLAGS.GUILDS
       ]
   });
 
