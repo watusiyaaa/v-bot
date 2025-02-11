@@ -1,4 +1,12 @@
-const { Client, Events, EmbedBuilder } = require('discord.js');
+const { Client, Events, EmbedBuilder, GatewayIntentBits } = require('discord.js');
+   
+const client = new Client(
+    { intents: [
+        GatewayIntentBits.Guilds, 
+        GatewayIntentBits.GuildMessages
+        ] 
+    });
+
 
 function registerCommands(client) {
     client.on(Events.InteractionCreate, async interaction => {
@@ -11,7 +19,7 @@ function registerCommands(client) {
         client.application.commands.set(commands)
             .then(() => console.log('Commands registered'))
             .catch(console.error);
-            
+
         if (!interaction.isCommand()) return;
 
         const { commandName } = interaction;
@@ -50,4 +58,5 @@ function getOrdinalSuffix(n) {
     return n + (s[(v - 20) % 10] || s[v] || s[0]);
 }
 
+registerCommands(client);
 module.exports = { registerCommands };
