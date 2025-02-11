@@ -23,7 +23,7 @@ module.exports = function registerCommands(client) {
             console.log('Started refreshing application (/) commands.');
 
             await rest.put(
-                Routes.applicationGuildCommands(client.user.id, process.env.GUILD_ID),
+                Routes.applicationGuildCommands(client.user.id, process.env.CRC_ID),
                 { body: commands },
             );
 
