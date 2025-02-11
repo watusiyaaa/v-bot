@@ -4,7 +4,7 @@
 
 const { Client, Events, GatewayIntentBits, EmbedBuilder } = require('discord.js');
 const dotenv = require('dotenv');
-const registerCommands = require('./commands/cmdregister');
+const registerCommands = require('./commands/commands');
 
 dotenv.config();
 
@@ -19,7 +19,7 @@ const client = new Client({
 });
 
 client.once('ready', () => {
-    console.log(`Logged in ####{client.user.tag}!`);
+    console.log(`Logged in ${client.user.tag}!`);
     registerCommands(client);  // Pass the client object here
 });
 
