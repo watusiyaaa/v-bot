@@ -1,24 +1,39 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('greet')
         .setDescription('Sends a greeting message'),
-    async execute(interaction) {
+    name: 'greet',
+    description: 'Sends a greeting message',
+    async execute(interactionOrMessage, args) {
+        let user;
+        if (interactionOrMessage.isCommand) {
+            // Slash command
+            user = interactionOrMessage.user;
+        } else {
+            // Prefix command
+            user = interactionOrMessage.author;
+        }
+
         const embed = new EmbedBuilder()
             .setColor('#CDF7F6')
             .setAuthor({ 
                 name: '✅ Verification Successful!',
-                iconURL: interaction.guild?.iconURL({ size: 512 }) ?? '' 
+                iconURL: interactionOrMessage.guild?.iconURL({ size: 512 }) ?? '' 
             })
             .setTitle('**ᴄᴏᴢʏ ʀʜ ᴄᴀꜰᴇ 🍓 server**')
-            .setDescription(`Welcome ${interaction.user}!\n\nMake sure to read the <#1335169467424178266> and get your <#1335169556594823198> in these respective channels.\nHope you enjoy your stay in the server!`)
-            .setThumbnail(interaction.user.avatarURL({ extension: 'png', size: 512 }))
+            .setDescription(`Welcome ${user}!\n\nMake sure to read the <#1335169467424178266> and get your <#1335169556594823198> in these respective channels.\nHope you enjoy your stay in the server!`)
+            .setThumbnail(user.avatarURL({ extension: 'png', size: 512 }))
             .setImage('https://media.discordapp.net/attachments/1288865167320416266/1298934742720450571/Apartamento_Qualquer_Banner_GIF_-_Apartamento_Qualquer_Banner_Banner_-_Discover__Share_GIFs.gif?ex=67a0863f&is=679f34bf&hm=4540cc4c26dc0e4be5da8158f40f482f7fbb12ae64843e74ea98fd7333d3ae68&=&width=622&height=346')
-            .setFooter({ text: `You're our ${interaction.guild ? getOrdinalSuffix(interaction.guild.memberCount) : 'unknown'} member!` })
+            .setFooter({ text: `You're our ${interactionOrMessage.guild ? getOrdinalSuffix(interactionOrMessage.guild.memberCount) : 'unknown'} member!` })
             .setTimestamp(new Date());
 
-        await interaction.reply({ embeds: [embed] });
+        if (interactionOrMessage.isCommand) {
+            await interactionOrMessage.reply({ embeds: [embed] });
+        } else {
+            await interactionOrMessage.reply({ embeds: [embed] });
+        }
     },
 };
 

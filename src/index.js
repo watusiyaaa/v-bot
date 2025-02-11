@@ -2,8 +2,10 @@
   - all of the js files under src folder will be imported on this file, so that i will only be executing this file
   - the only logic function on this file will only be the verification protocol. */
 
-const { Client, Events, GatewayIntentBits, EmbedBuilder } = require('discord.js');
+const { Client, Events, GatewayIntentBits, EmbedBuilder, Collection } = require('discord.js');
 const dotenv = require('dotenv');
+const fs = require('fs');
+const path = require('path');
 const registerCommands = require('./commands/commands');
 
 dotenv.config();
@@ -18,6 +20,16 @@ const client = new Client({
     ]
 });
 
+client.commands = new Collection();
+const prefix = '.'; // Define your prefix here
+const commandsPath = path.join(__dirname, 'commands');
+const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js') && file !== 'commands.js');
+
+for (const file of commandFiles) {
+    const command = require(path.join(commandsPath, file));
+    client.commands.set(command.name, command);
+}
+
 client.once('ready', () => {
     console.log(`Logged in ${client.user.tag}!`);
     registerCommands(client);  // Pass the client object here
@@ -26,6 +38,41 @@ client.once('ready', () => {
 // Telling if the bot's online
 client.once(Events.ClientReady, async (c) => {
     console.log(`${c.user?.tag} is now online!`);
+});
+
+// Handling interactions
+client.on(Events.InteractionCreate, async interaction => {
+    if (!interaction.isCommand()) return;
+
+    const command = client.commands.get(interaction.commandName);
+
+    if (!command) return;
+
+    try {
+        await command.execute(interaction);
+    } catch (error) {
+        console.error(error);
+        await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+    }
+});
+
+// Handling prefix commands
+client.on(Events.MessageCreate, async (message) => {
+    if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+    const args = message.content.slice(prefix.length).trim().split(/ +/);
+    const commandName = args.shift().toLowerCase();
+
+    const command = client.commands.get(commandName);
+
+    if (!command) return;
+
+    try {
+        await command.execute(message, args);
+    } catch (error) {
+        console.error(error);
+        await message.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+    }
 });
 
 // Logging the reaction added by the user

@@ -1,21 +1,36 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('avatarget')
-        .setDescription('Displays the avatar of the specified user')
+        .setName('avatar')
+        .setDescription('Gets the avatar of the user')
         .addUserOption(option => 
-            option.setName('user')
+            option.setName('target')
                 .setDescription('The user to get the avatar of')
                 .setRequired(false)),
-    async execute(interaction) {
-        const user = interaction.options.getUser('user') ?? interaction.user;
-        const embed = new EmbedBuilder()
-        .setColor('#CDF7F6')
-        .setAuthor({ name: user.tag, iconURL: user.avatarURL({ size: 512 }) ?? '' })
-        .setTitle(`This is the profile of ${user.tag}`)
-        .setImage(user.displayAvatarURL({ size: 512 })); 
+    name: 'avatar',
+    description: 'Gets the avatar of the user',
+    async execute(interactionOrMessage, args) {
+        let user;
+        if (interactionOrMessage.isCommand) {
+            // Slash command
+            user = interactionOrMessage.options.getUser('target') || interactionOrMessage.user;
+        } else {
+            // Prefix command
+            user = interactionOrMessage.mentions.users.first() || interactionOrMessage.author;
+        }
 
-    await interaction.reply({ embeds: [embed] });
+        const embed = new EmbedBuilder()
+            .setColor('#CDF7F6')
+            .setTitle(`${user.username}'s Avatar`)
+            .setImage(user.displayAvatarURL({ dynamic: true, size: 512 }))
+            .setFooter({ text: `Execute` })
+            .setTimestamp();
+
+        if (interactionOrMessage.isCommand) {
+            await interactionOrMessage.reply({ embeds: [embed] });
+        } else {
+            await interactionOrMessage.reply({ embeds: [embed] });
+        }
     },
 };

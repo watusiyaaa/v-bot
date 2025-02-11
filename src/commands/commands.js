@@ -1,7 +1,6 @@
 const { REST, Routes } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
-const { Client, GatewayIntentBits } = require('discord.js');
 const dotenv = require('dotenv');
 
 dotenv.config();
@@ -33,11 +32,3 @@ module.exports = function registerCommands(client) {
         }
     })();
 };
-
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
-
-client.once('ready', () => {
-    console.log('Now online!');
-});
-
-client.login(process.env.V_BOT_TOKEN);
