@@ -40,4 +40,16 @@ function getOrdinalSuffix(n) {
     return n + (s[(v - 20) % 10] || s[v] || s[0]);
 }
 
+function registerCommands() {
+    if (!client.application) {
+        console.error("Client application is null. Commands cannot be registered.");
+        return;
+    }
+    
+    client.application.commands.set(commands)
+        .then(() => console.log('Commands registered'))
+        .catch(console.error);
+}
+
+
 module.exports = { registerCommands };

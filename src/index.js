@@ -16,9 +16,15 @@
           GatewayIntentBits.GuildMessageReactions,
           GatewayIntentBits.GuildMembers,
           GatewayIntentBits.MessageContent,
+          Intents.FLAGS.GUILDS
       ]
   });
-  
+
+   client.once('ready', () => {
+       console.log(`Logged in ####{client.user.tag}!`);
+       registerCommands();  // This should be called inside the ready event
+   });
+   
   // Telling if the bot's online
   client.once(Events.ClientReady, async (c) => {
       console.log(`${c.user?.tag} is now online!`);
