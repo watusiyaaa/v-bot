@@ -5,9 +5,9 @@ module.exports = {
         .setName('avatar')
         .setDescription('Gets the avatar of the user')
         .addUserOption(option => 
-            option.setName('target')
-                .setDescription('The user to get the avatar of')
-                .setRequired(false)),
+            option.setName('user')
+                .setDescription('Which user you want to get their avatar on?')
+                .setRequired(false)), // false - optional, true - required
     name: 'avatar',
     description: 'Gets the avatar of the user',
     async execute(interactionOrMessage, args) {

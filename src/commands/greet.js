@@ -1,4 +1,4 @@
-const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder, PermissionsBitField } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -11,9 +11,15 @@ module.exports = {
         if (interactionOrMessage.isCommand) {
             // Slash command
             user = interactionOrMessage.user;
+            member = interactionOrMessage.guild.members.cache.get(user.id);
         } else {
             // Prefix command
             user = interactionOrMessage.author;
+            member = interactionOrMessage.guild.members.cache.get(user.id);
+        }
+
+        if (!member.permissions.has(PermissionsBitField.Flags.Administrator)) {
+            return interactionOrMessage.reply({ content: 'You are not an admin!', ephemeral: true });
         }
 
         const embed = new EmbedBuilder()
