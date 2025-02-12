@@ -12,7 +12,7 @@ module.exports = (client) => {
             status: 'online',
             activities: [
                 {
-                    name: 'FRI(END)S | 24/7)',
+                    name: 'FRI(END)S | 24/7',
                     type: ActivityType.Listening, // Set activity type
                 },
             ],
