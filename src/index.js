@@ -7,6 +7,7 @@ const dotenv = require('dotenv');
 const fs = require('fs');
 const path = require('path');
 const registerCommands = require('./commands/commands');
+const status = require('./botstatus');
 
 dotenv.config();
 
@@ -30,6 +31,8 @@ for (const file of commandFiles) {
     const command = require(path.join(commandsPath, file));
     client.commands.set(command.name, command);
 }
+
+status(client); // Pass the client object here
 
 // the 2 codes are for telling the bot that it is online
 client.once('ready', () => {
