@@ -19,14 +19,14 @@ module.exports = function registerCommands(client) {
 
     (async () => {
         try {
-            console.log('Started refreshing application (/) commands.');
+            console.log('Registering the commands...');
 
             await rest.put(
                 Routes.applicationGuildCommands(client.user.id, process.env.CRC_ID),
                 { body: commands },
             );
 
-            console.log('Successfully reloaded application (/) commands.');
+            console.log('Its now in!!');
         } catch (error) {
             console.error(error);
         }

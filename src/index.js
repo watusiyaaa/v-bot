@@ -20,6 +20,7 @@ const client = new Client({
     ]
 });
 
+// for registering the commands.js (and its subcommands) to the bot
 client.commands = new Collection();
 const prefix = '.'; // Define your prefix here
 const commandsPath = path.join(__dirname, 'commands');
@@ -30,17 +31,17 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command);
 }
 
+// the 2 codes are for telling the bot that it is online
 client.once('ready', () => {
     console.log(`Logged in ${client.user.tag}!`);
     registerCommands(client);  // Pass the client object here
 });
 
-// Telling if the bot's online
 client.once(Events.ClientReady, async (c) => {
     console.log(`${c.user?.tag} is now online!`);
 });
 
-// Handling interactions
+// Handling interactions (slash cmd)
 client.on(Events.InteractionCreate, async interaction => {
     if (!interaction.isCommand()) return;
 
@@ -95,7 +96,7 @@ client.on(Events.MessageCreate, async (message) => {
         .setColor('#CDF7F6')
         .setTitle('A NEW MEMBER HAS JOINED!')
         .setDescription(`${message.author.tag} has joined the server and is waiting to be verified!
-            React with <a:loading:1336976196365451296> to accept the new member!`)
+            React with <a:loading:1336976196365451296> or ✅ to accept the new member!`)
         .addFields(
             { name: 'Message Content', value: message.content },
             { name: 'Message Link', value: `[Do the honors of accepting it <a:SOWICKED:1337017979564458025>](${message.url})` }
@@ -110,15 +111,17 @@ client.on(Events.MessageCreate, async (message) => {
     }
 });
 
+// this is the verification protocol
 client.on(Events.MessageReactionAdd, async (reaction, user) => {
     if (user.bot) return;
 
     if (reaction.message.channel.id !== process.env.VERIFY_CHANNEL) return;
 
-    const customEmojiId = process.env.EMOJI;
-    if (!customEmojiId) return;
+    const cEID = process.env.EMOJI;
+    const EID = '✅';
+    if (!cEID) return;
 
-    if (reaction.emoji.id !== customEmojiId) return;
+    if (reaction.emoji.id !== cEID && reaction.emoji.name !== EID) return;
 
     const targetUser = reaction.message.author;
     if (!targetUser || targetUser.bot) return;
