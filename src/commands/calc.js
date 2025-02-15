@@ -43,8 +43,6 @@ module.exports = {
     }
 };
 
-console.log('calc test');
-
 // Math Calculation Function
 function calculate(expression) {
     try {

@@ -12,7 +12,14 @@ module.exports = function registerCommands(client) {
 
     for (const file of commandFiles) {
         const command = require(path.join(commandsPath, file));
-        commands.push(command.data.toJSON());
+        // Only push slash commands that have data property
+        if (command.data) {
+            commands.push(command.data.toJSON());
+        }
+        // Register prefix commands
+        if (command.name) {
+            client.commands.set(command.name, command);
+        }
     }
 
     const rest = new REST({ version: '10' }).setToken(process.env.V_BOT_TOKEN);

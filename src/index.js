@@ -2,7 +2,8 @@
   - all of the js files under src folder will be imported on this file, so that i will only be executing this file
   - the only logic function on this file will only be the verification protocol. */
 
-const { Client, Events, GatewayIntentBits, EmbedBuilder, Collection } = require('discord.js');
+const { Client, Events, GatewayIntentBits, EmbedBuilder, Collection, MessageFlags } = require('discord.js');
+
 const dotenv = require('dotenv');
 const fs = require('fs');
 const path = require('path');
@@ -192,6 +193,37 @@ client.on(Events.MessageReactionAdd, async (reaction, user) => {
     }
     console.log('Greet message sent');
 });
+
+// Handle button interactions for reaction roles
+client.on(Events.InteractionCreate, async interaction => {
+    if (!interaction.isButton()) return;
+
+    try {
+        const roleId = interaction.customId;
+        const role = interaction.guild.roles.cache.get(roleId);
+        const member = interaction.member;
+
+        if (!role) {
+            return interaction.reply({ content: 'Role not found!', flags: [MessageFlags.Ephemeral] });
+
+        }
+
+        if (member.roles.cache.has(roleId)) {
+            await member.roles.remove(role);
+            return interaction.reply({ content: `Removed role: ${role.name}`, flags: [MessageFlags.Ephemeral] });
+
+        } else {
+            await member.roles.add(role);
+            return interaction.reply({ content: `Added role: ${role.name}`, flags: [MessageFlags.Ephemeral] });
+
+        }
+    } catch (error) {
+        console.error('Error handling button interaction:', error);
+            return interaction.reply({ content: 'Failed to assign role!', flags: [MessageFlags.Ephemeral] });
+
+    }
+});
+
 
 client.login(process.env.V_BOT_TOKEN);
 
