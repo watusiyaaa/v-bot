@@ -1,5 +1,5 @@
+// calculator command
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { AllowedMentionsTypes } = require('discord.js');
 
 module.exports = {
     // Slash Command Definition

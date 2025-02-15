@@ -204,22 +204,22 @@ client.on(Events.InteractionCreate, async interaction => {
         const member = interaction.member;
 
         if (!role) {
-            return interaction.reply({ content: 'Role not found!', flags: [MessageFlags.Ephemeral] });
+            return interaction.reply({ content: 'Role not found dumbass!!', flags: [MessageFlags.Ephemeral] });
 
         }
 
         if (member.roles.cache.has(roleId)) {
             await member.roles.remove(role);
-            return interaction.reply({ content: `Removed role: ${role.name}`, flags: [MessageFlags.Ephemeral] });
+            return interaction.reply({ content: `<:rizz:1339527760711782431> I removed this role in your profile: **${role.name}**`, flags: [MessageFlags.Ephemeral] });
 
         } else {
             await member.roles.add(role);
-            return interaction.reply({ content: `Added role: ${role.name}`, flags: [MessageFlags.Ephemeral] });
+            return interaction.reply({ content: `<:rizz:1339527760711782431> I added this role in your profile: **${role.name}**`, flags: [MessageFlags.Ephemeral] });
 
         }
     } catch (error) {
-        console.error('Error handling button interaction:', error);
-            return interaction.reply({ content: 'Failed to assign role!', flags: [MessageFlags.Ephemeral] });
+        console.error('Now im the dum dum. There has been a error when trying to add or remove a role:', error);
+            return interaction.reply({ content: '<:rizzcri:1339527910414880778> Sorry im a dum dum. i failed to assign your role :((', flags: [MessageFlags.Ephemeral] });
 
     }
 });

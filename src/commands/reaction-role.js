@@ -1,3 +1,4 @@
+//reaction role maker cmd (prefix only)
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder, Colors } = require('discord.js');
 
 // Color name to hex mapping
@@ -27,7 +28,7 @@ module.exports = {
         if (args[0] !== 'make') return;
 
         // Step 1: Ask for channel
-        const channelPrompt = await message.channel.send('Please mention the channel where the reaction role should be sent:');
+        const channelPrompt = await message.channel.send('Which channel should the reaction role message be sent to?');
         const channelFilter = m => m.author.id === message.author.id;
         
         try {
@@ -40,11 +41,11 @@ module.exports = {
 
             const channel = channelResponse.first().mentions.channels.first();
             if (!channel) {
-                return message.channel.send('That is not a valid channel. Please try again.');
+                return message.channel.send('That isn\'t a valid channel dum dum. Try again.');
             }
 
             // Step 2: Ask for message content
-            const messagePrompt = await message.channel.send('Please provide the message content in the format:\nTitle | Message Description\nYou can use [ROLES] as a placeholder for roles:');
+            const messagePrompt = await message.channel.send('The custom message. **Strictly follow the following format:**\n\n```Title | Message Description```\n\nYou can use **[ROLES]** if you want the role to appear in the message.');
             
             const messageResponse = await message.channel.awaitMessages({
                 filter: channelFilter,
@@ -56,7 +57,7 @@ module.exports = {
             let [title, description] = messageResponse.first().content.split('|').map(s => s.trim());
 
             // Step 3: Ask for message type
-            const typePrompt = await message.channel.send('Should this be a text message or an embed? (text/embed)');
+            const typePrompt = await message.channel.send('Do you want your custom message to be __"text"__ or __"embed"__?');
             
             const typeResponse = await message.channel.awaitMessages({
                 filter: channelFilter,
@@ -69,7 +70,7 @@ module.exports = {
             let embedColor = null;
 
             if (messageType === 'embed') {
-                const colorPrompt = await message.channel.send('Please provide the embed color (color name or hex code):');
+                const colorPrompt = await message.channel.send('Provide the embed\'s color (can be a color name or a hex code)\n\n-# Example color names: **white, black, red, green, blue, yellow, purple, pink, orange**\n-# Example hex code: **#ff0000**');
                 
                 const colorResponse = await message.channel.awaitMessages({
                     filter: channelFilter,
@@ -82,7 +83,7 @@ module.exports = {
             }
 
             // Step 4: Role assignment
-            const rolePrompt = await message.channel.send('Please add roles in the format:\n:emoji: @role\nType "done" when finished:');
+            const rolePrompt = await message.channel.send('Add the roles. **Strictly follow the following format:**\n```:emoji: @role```\nType **"done"** when finished:');
             
             const roles = [];
             const roleCollector = message.channel.createMessageCollector({
@@ -100,7 +101,7 @@ module.exports = {
                 const mentionedRole = m.mentions.roles.first();
                 
                 if (!emoji || !mentionedRole) {
-                    return message.channel.send('Invalid format. Please use: :emoji: @role');
+                    return message.channel.send('Not the right format dum dum. **Strictly follow the following format:** \n```:emoji: @role```');
                 }
 
                 roles.push({ emoji, role: mentionedRole });
@@ -109,7 +110,7 @@ module.exports = {
 
             roleCollector.on('end', async () => {
                 if (roles.length === 0) {
-                    return message.channel.send('No roles were added. Command cancelled.');
+                    return message.channel.send('You haven\'t added any roles dum dum. Im shutting the command...');
                 }
 
                 // Create buttons
@@ -142,15 +143,15 @@ module.exports = {
                 // Send message
                 try {
                     await channel.send(content);
-                    message.channel.send('Reaction role message created successfully!');
+                    message.channel.send('Reaction role added. Not bad admin <:hannmew:1339530761807855669>');
                 } catch (error) {
                     console.error('Error sending reaction role message:', error);
-                    message.channel.send('There was an error creating the reaction role message.');
+                    message.channel.send('Now im the dum dum. I couldn\'t send the message. Please try again (unfortunately).');
                 }
             });
         } catch (error) {
             console.error('Error in reaction role command:', error);
-            message.channel.send('The command timed out or encountered an error. Please try again.');
+            message.channel.send('Now im the dum dum. I got timed out or have encountered an error. Please try again (unfortunately).');
         }
     }
 };
