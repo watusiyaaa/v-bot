@@ -153,5 +153,8 @@ module.exports = {
             console.error('Error in reaction role command:', error);
             message.channel.send('Now im the dum dum. I got timed out or have encountered an error. Please try again (unfortunately).');
         }
+    },
+    async executeSlash(interaction) {
+        await interaction.reply({ content: 'Its only available as a prefix command.', ephemeral: true });
     }
 };

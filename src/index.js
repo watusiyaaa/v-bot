@@ -37,7 +37,7 @@ status(client); // Pass the client object here
 
 // the 2 codes are for telling the bot that it is online
 client.once('ready', () => {
-    console.log(`Logged in ${client.user.tag}!`);
+    console.log(`Logging in as ${client.user.tag}...`);
     registerCommands(client);  // Pass the client object here
 });
 
@@ -50,7 +50,8 @@ client.on('messageCreate', async (msg) => {
     if(msg.content === 'reqs'){
         await msg.reply({
             content: '# Verification Requirements\n- You play Rhythm Hive. Provide a picture of your Rhythm Hive profile (as shown in the 1st picture below)\n- You must be a member of **RHCord** ([**press here to join the server**](https://discord.gg/MQdvHVpjca)), and your current level role there must STRICTLY be **A Class** and above (as also shown in the 2nd picture below, type **__t!rank__** to get this pic from the server)',
-            files: ['./assets/vreq.png']
+            files: ['./assets/vreq.png'],
+            allowedMentions: { repliedUser: false }
         });
     }
 });
@@ -64,10 +65,14 @@ client.on(Events.InteractionCreate, async interaction => {
     if (!command) return;
 
     try {
-        await command.executeSlash(interaction);
+        if (command.executeSlash) {
+            await command.executeSlash(interaction);
+        } else {
+            await interaction.reply({ content: 'Its only available as a prefix command.', flags: [MessageFlags.Ephemeral] });
+        }
     } catch (error) {
         console.error(error);
-        await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+        await interaction.reply({ content: 'There was an error while executing this command!', flags: [MessageFlags.Ephemeral] });
     }
 });
 
@@ -205,25 +210,20 @@ client.on(Events.InteractionCreate, async interaction => {
 
         if (!role) {
             return interaction.reply({ content: 'Role not found dumbass!!', flags: [MessageFlags.Ephemeral] });
-
         }
 
         if (member.roles.cache.has(roleId)) {
             await member.roles.remove(role);
             return interaction.reply({ content: `<:rizz:1339527760711782431> I removed this role in your profile: **${role.name}**`, flags: [MessageFlags.Ephemeral] });
-
         } else {
             await member.roles.add(role);
             return interaction.reply({ content: `<:rizz:1339527760711782431> I added this role in your profile: **${role.name}**`, flags: [MessageFlags.Ephemeral] });
-
         }
     } catch (error) {
         console.error('Now im the dum dum. There has been a error when trying to add or remove a role:', error);
-            return interaction.reply({ content: '<:rizzcri:1339527910414880778> Sorry im a dum dum. i failed to assign your role :((', flags: [MessageFlags.Ephemeral] });
-
+        return interaction.reply({ content: '<:rizzcri:1339527910414880778> Sorry im a dum dum. i failed to assign your role :((', flags: [MessageFlags.Ephemeral] });
     }
 });
-
 
 client.login(process.env.V_BOT_TOKEN);
 
