@@ -1,5 +1,5 @@
 //reaction role maker cmd (prefix only)
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder, Colors } = require('discord.js');
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder, Colors, AllowedMentionsTypes } = require('discord.js');
 
 // Color name to hex mapping
 const colorMap = {
@@ -143,7 +143,11 @@ module.exports = {
                 // Send message
                 try {
                     await channel.send(content);
-                    message.channel.send('Reaction role added. Not bad admin <:hannmew:1339530761807855669>');
+                    message.reply({
+                        content: 'Reaction role added. Not bad admin <:hannmew:1339530761807855669>',
+                        allowedMentions: { repliedUser: false },
+                        components: [row]
+                    });
                 } catch (error) {
                     console.error('Error sending reaction role message:', error);
                     message.channel.send('Now im the dum dum. I couldn\'t send the message. Please try again (unfortunately).');
