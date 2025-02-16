@@ -2,7 +2,7 @@
   - all of the js files under src folder will be imported on this file, so that i will only be executing this file
   - the only logic function on this file will only be the verification protocol. */
 
-  const { Client, Events, GatewayIntentBits, EmbedBuilder, Collection, MessageFlags, Message, Role } = require('discord.js');
+  const { Client, Events, GatewayIntentBits, EmbedBuilder, Collection, MessageFlags, Message } = require('discord.js');
   const env = require('dotenv');
   const fs = require('fs');
   const path = require('path');
