@@ -29,7 +29,7 @@ module.exports = {
             .setDescription(`**Welcome to the server ${user}!**
                 \n\nMake sure to read the <#1335169467424178266> and get your <#1335169556594823198> in these respective channels.
                 \nHope you enjoy your stay in the server!`)
-                .setThumbnail(user.avatarURL({ extension: 'png', size: 512 }) ?? 'https://media.discordapp.net/attachments/1335172660182646927/1340632959467651122/discordgrey.png?ex=67b3113d&is=67b1bfbd&hm=e0e9ca814279a29237790ddb721a70821a470cb8256d81984fb9fd833d82182f&=&format=webp&quality=lossless&width=320&height=320')
+            .setThumbnail(user.avatarURL({ extension: 'png', size: 512 }) ?? 'https://media.discordapp.net/attachments/1335172660182646927/1340632959467651122/discordgrey.png?ex=67b3113d&is=67b1bfbd&hm=e0e9ca814279a29237790ddb721a70821a470cb8256d81984fb9fd833d82182f&=&format=webp&quality=lossless&width=320&height=320')
             .setImage('https://media.discordapp.net/attachments/1335172660182646927/1339065138589732915/greet_gif.gif?ex=67ad5d17&is=67ac0b97&hm=cd7e5417333194473cfb73a1eb087f2016d6867a5253241d3981c1b04982e936&=&width=622&height=346')
             .setFooter({text: `You're our ${pmsg.guild ? getOrdinalSuffix(pmsg.guild.memberCount): 'unknown'} member!`})
             .setTimestamp(new Date());
