@@ -10,6 +10,8 @@ const path = require('path');
 const registerCommands = require('./commands/commands');
 const status = require('./botstatus');
 
+
+
 dotenv.config();
 
 const client = new Client({
@@ -35,6 +37,8 @@ for (const file of commandFiles) {
 
 status(client); // Pass the client object here
 
+
+
 // the 2 codes are for telling the bot that it is online
 client.once('ready', () => {
     console.log(`Logging in as ${client.user.tag}...`);
@@ -43,17 +47,6 @@ client.once('ready', () => {
 
 client.once(Events.ClientReady, async (c) => {
     console.log(`${c.user?.tag} is now online!`);
-});
-
-// just in case someone asks for the requirements again
-client.on('messageCreate', async (msg) => {
-    if(msg.content === 'reqs'){
-        await msg.reply({
-            content: '# Verification Requirements\n- You play Rhythm Hive. Provide a picture of your Rhythm Hive profile (as shown in the 1st picture below)\n- You must be a member of **RHCord** ([**press here to join the server**](https://discord.gg/MQdvHVpjca)), and your current level role there must STRICTLY be **A Class** and above (as also shown in the 2nd picture below, type **__t!rank__** to get this pic from the server)',
-            files: ['./assets/vreq.png'],
-            allowedMentions: { repliedUser: false }
-        });
-    }
 });
 
 // Handling interactions (slash cmd)
@@ -78,7 +71,16 @@ client.on(Events.InteractionCreate, async interaction => {
 
 // Handling prefix commands
 client.on(Events.MessageCreate, async (message) => {
+    // Handle type commands
+    if (message.content === 'reqs' && !message.author.bot) {
+        const tcmd = require('./typecmd');
+        tcmd.run(message);
+        return;
+    }
+    
+    // Handle prefix commands
     if (!message.content.startsWith(prefix) || message.author.bot) return;
+
 
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const commandName = args.shift().toLowerCase();
@@ -112,6 +114,7 @@ client.on(Events.MessageCreate, async (message) => {
         return;
     }
 
+    // for notifying the admin on the proof of the user
     const embed = new EmbedBuilder()
         .setColor('#CDF7F6')
         .setTitle('A NEW MEMBER HAS JOINED!')
@@ -199,7 +202,7 @@ client.on(Events.MessageReactionAdd, async (reaction, user) => {
     console.log('Greet message sent');
 });
 
-// Handle button interactions for reaction roles
+// Button reaction role
 client.on(Events.InteractionCreate, async interaction => {
     if (!interaction.isButton()) return;
 
