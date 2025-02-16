@@ -15,7 +15,10 @@ module.exports = {
 
         const embed = new EmbedBuilder()
             .setColor('#CDF7F6')
-            .setTitle(`${user.username}'s Avatar`)
+            .setAuthor({
+                name: `${user.username}'s Avatar`,
+                iconURL: user.displayAvatarURL(),
+            })
             .setImage(user.displayAvatarURL({ dynamic: true, size: 512 }))
             .setFooter({ text: `Execute` })
             .setTimestamp();
@@ -28,7 +31,10 @@ module.exports = {
         
         const embed = new EmbedBuilder()
             .setColor('#CDF7F6')
-            .setTitle(`${user.username}'s Avatar`)
+            .setAuthor({
+                name: `${user.username}'s Avatar`,
+                iconURL: user.displayAvatarURL(),
+            })
             .setImage(user.displayAvatarURL({ dynamic: true, size: 512 }))
             .setFooter({ text: `Execute` })
             .setTimestamp();
