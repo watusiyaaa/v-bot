@@ -26,14 +26,31 @@
   user.commands = new Collection();
   const prefix = '.';
   const cmdP = path.join(__dirname, 'commands');
-  const cmdF = fs.readdirSync(cmdP).filter(file => file.endsWith('.js') && file !== 'commands.js');
+  console.log('Loading commands from:', cmdP);
+  
+  const cmdF = fs.readdirSync(cmdP, { withFileTypes: true })
+      .flatMap(dirent => {
+          if (dirent.isDirectory()) {
+              const subDir = path.join(cmdP, dirent.name);
+              console.log('Loading commands from subdirectory:', subDir);
+              return fs.readdirSync(subDir)
+                  .filter(file => file.endsWith('.js'))
+                  .map(file => path.join(dirent.name, file));
+          }
+          return dirent.name.endsWith('.js') && dirent.name !== 'commands.js' ? [dirent.name] : [];
+      });
 
-    for (const file of cmdF){
-        const cmd = require(path.join(cmdP, file));
-        user.commands.set(cmd.name, cmd);
-    };
+  console.log('Found command files:', cmdF);
 
-    status(user); //importing the status function
+  for (const file of cmdF){
+      const fullPath = path.join(cmdP, file);
+      console.log('Loading command from:', fullPath);
+      const cmd = require(fullPath);
+      user.commands.set(cmd.name, cmd);
+      console.log(`Registered command: ${cmd.name}`);
+  };
+
+  status(user); //importing the status function
 
 //telling if the bot's online
 user.once('ready', () => {
@@ -183,7 +200,7 @@ user.on(Events.MessageReactionAdd, async (react, user) => {
     .setDescription(`**Welcome to the server <@${unvUser.id}>!**
         \n\nMake sure to read the <#1335169467424178266> and get your <#1335169556594823198> in these respective channels.
         \nHope you enjoy your stay in the server!`)
-    .setThumbnail(user.displayAvatarURL())
+        .setThumbnail(unvUser.displayAvatarURL({ size: 512 }))
     .setImage('https://media.discordapp.net/attachments/1335172660182646927/1339065138589732915/greet_gif.gif?ex=67ad5d17&is=67ac0b97&hm=cd7e5417333194473cfb73a1eb087f2016d6867a5253241d3981c1b04982e936&=&width=622&height=346')
     .setFooter({text: `You're our ${react.message.guild ? getOrdinalSuffix(react.message.guild.memberCount): 'unknown'} member!`})
     .setTimestamp(new Date())
@@ -199,11 +216,15 @@ user.on(Events.MessageReactionAdd, async (react, user) => {
 // button reacton role protocol
 user.on(Events.InteractionCreate, async interaction => {
     if(!interaction.isButton()) return;
+    
+    // Ignore pagination buttons from songnotes command
+    if (interaction.customId === 'previous' || interaction.customId === 'next') return;
 
     try {
         const rrID = interaction.customId;
         const rr = interaction.guild.roles.cache.get(rrID);
         const rrMember = interaction.member;
+
 
         if (!rr) {
             return interaction.reply({
