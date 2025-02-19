@@ -23,7 +23,9 @@ module.exports = {
             .setFooter({ text: `Execute` })
             .setTimestamp();
 
-        await message.reply({ embeds: [embed] });
+        await message.reply({ 
+            embeds: [embed],
+            allowedMentions: { repliedUser: false } });
     },
     
     async executeSlash(interaction) {
