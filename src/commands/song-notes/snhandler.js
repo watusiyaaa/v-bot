@@ -24,7 +24,7 @@ module.exports = {
         const songName = args[0]?.toLowerCase(); // Get the song name from the arguments
 
         if (!songName || !songNotesCommands[songName]) {
-            return message.channel.send('⚠️Specify a group (type `.snalias or /snalias` for more details)');
+            return message.channel.send('⚠️Specify a group (type `.snalias or /snalias` for more details)\n-# If your\'e seeing this, that because i havent done vol. 1 groups yet. Please bear with me!');
         }
 
         // Execute the corresponding command
