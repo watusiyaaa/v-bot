@@ -22,7 +22,7 @@ const songNotesCommands = {
 module.exports = {
     name: 'songnotes',
     aliases: ['sn'],
-    description: 'Shows song information for RH groups.',
+    description: 'Shows song information for RH groups.\n-# Legend:\n<:nonrenewed:1344323904751009833> - Non-renewed song',
     async execute(message, args) {
         const songName = args[0]?.toLowerCase(); 
 
