@@ -197,9 +197,6 @@ module.exports = {
                     .setThumbnail(pages[currentPage].thumbnail)
                     .setFooter({ text: `Page ${currentPage + 1}/${pages.length}` });
 
-
-
-
                 await i.update({ 
                     embeds: [njembed], 
                     components: [row] 
