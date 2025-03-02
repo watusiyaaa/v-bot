@@ -1,6 +1,7 @@
 // command handler for all files under song notes
 
 const bts = require('./bts');
+const txt = require('./txt');
 const lesserafim = require('./lesserafim');
 const newjeans = require('./newjeans');
 const boynextdoor = require('./boynextdoor');
@@ -9,10 +10,13 @@ const illit = require('./illit');
 const songNotesCommands = {
     bts,
     bangtan: bts,
+    txt,
+    tubatu: txt,
     lesserafim,
     lsf: lesserafim,
     newjeans,
     nj: newjeans,
+    njz: newjeans,
     boynextdoor,
     bnd: boynextdoor,
     illit,

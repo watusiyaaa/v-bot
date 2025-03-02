@@ -16,11 +16,11 @@ async execute(msg, args) {
             fields:[
                 {
                     name: '**Magnetic | `lvl.13`**',
-                    value: '__Short notes:__ `[no data yet]` __Short length:__ `[no data yet]`\n__Full notes:__ `1057` __Full length:__ `2:40`'
+                    value: '__Short notes:__ `374` __Short length:__ `0:58`\n__Full notes:__ `1057` __Full length:__ `2:40`'
                 },
                 {
                     name: '**Lucky Girl Syndrome | `lvl.15`**',
-                    value: '__Short notes:__ `[no data yet]` __Short length:__ `[no data yet]`\n__Full notes:__ `1062` __Full length:__ `2:20`'
+                    value: '__Short notes:__ `375` __Short length:__ `0:57`\n__Full notes:__ `1062` __Full length:__ `2:20`'
                 }
             ]
         },
@@ -31,7 +31,7 @@ async execute(msg, args) {
             fields:[
                 {
                     name: '**Cherish (My Love) | `lvl.13`**',
-                    value: '__Short notes:__ `[no data yet]` __Short length:__ `[no data yet]`\n__Full notes:__ `994` __Full length:__ `2:56`'
+                    value: '__Short notes:__ `345` __Short length:__ `1:14`\n__Full notes:__ `994` __Full length:__ `2:56`'
                 }
             ]
         },
@@ -42,7 +42,7 @@ async execute(msg, args) {
             fields:[
                 {
                     name: '**Magnetic (R&B Remix) | `lvl.13`**',
-                    value: '__Short notes:__ `[no data yet]` __Short length:__ `[no data yet]`\n__Full notes:__ `1421` __Full length:__ `2:51`'
+                    value: '__Short notes:__ `399` __Short length:__ `1:01`\n__Full notes:__ `1421` __Full length:__ `2:51`'
                 }
             ]
         }
