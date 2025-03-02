@@ -104,7 +104,7 @@ module.exports = {
                     },
                     {
                         name: '**Call Me | `lvl.12`**',
-                        value: '__Short notes:__ `[no data yet]` __Short length:__ `[no data yet]`\n__Full notes:__ `1018` __Full length:__ `2:58`'
+                        value: '__Short notes:__ `369` __Short length:__ `1:12`\n__Full notes:__ `1018` __Full length:__ `2:58`'
                     }
                 ]
             }
