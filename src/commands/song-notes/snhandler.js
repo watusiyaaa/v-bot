@@ -2,25 +2,20 @@
 
 const bts = require('./bts');
 const txt = require('./txt');
+const svt = require('./seventeen');
 const lesserafim = require('./lesserafim');
 const newjeans = require('./newjeans');
 const boynextdoor = require('./boynextdoor');
 const illit = require('./illit');
 
 const songNotesCommands = {
-    bts,
-    bangtan: bts,
-    txt,
-    tubatu: txt,
-    lesserafim,
-    lsf: lesserafim,
-    newjeans,
-    nj: newjeans,
-    njz: newjeans,
-    boynextdoor,
-    bnd: boynextdoor,
-    illit,
-    ilt: illit
+    bts, bangtan: bts,
+    txt, tubatu: txt,
+    svt, seventeen: svt,
+    lesserafim, lsf: lesserafim,
+    newjeans, nj: newjeans, njz: newjeans,
+    boynextdoor, bnd: boynextdoor,
+    illit, ilt: illit
 };
 
 module.exports = {
