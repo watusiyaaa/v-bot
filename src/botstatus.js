@@ -12,8 +12,8 @@ module.exports = (client) => {
             status: 'online',
             activities: [
                 {
-                    name: 'FRI(END)S | 24/7',
-                    type: ActivityType.Listening, // Set activity type
+                    name: 'Slow Dancing | 24/7',
+                    type: ActivityType.Watching, // Set activity type
                 },
             ],
         });
