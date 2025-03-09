@@ -1,6 +1,6 @@
 /* the main file, things to remember:
   - all of the js files under src folder will be imported on this file, so that i will only be executing this file
-  - the only logic function on this file will only be the verification protocol. */
+  - index.js logic functions: verification protocol and role function */
 
   const { Client, Events, GatewayIntentBits, EmbedBuilder, Collection, MessageFlags, Message } = require('discord.js');
   const env = require('dotenv');
@@ -217,8 +217,8 @@ user.on(Events.MessageReactionAdd, async (react, user) => {
 user.on(Events.InteractionCreate, async interaction => {
     if(!interaction.isButton()) return;
     
-    // Ignore pagination buttons from songnotes command
-    if (interaction.customId === 'previous' || interaction.customId === 'next') return;
+    // ignoring songnotes buttons
+    if(['first', 'previous', 'next', 'last'].includes(interaction.customId)) return;
 
     try {
         const rrID = interaction.customId;
