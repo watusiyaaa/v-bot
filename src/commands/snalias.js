@@ -32,7 +32,7 @@ module.exports = {
         const alembed = new EmbedBuilder()
             .setColor('#CDF7F6')
             .setTitle('**Song notes alias**')
-            .setDescription('**__Song notes command structure:__** \n`.songnotes/.sn <group> soloist (<= only works for bts)`\n-# Legend: <:nonrn:1344330008486740049> - **Non-renewed Song**')
+            .setDescription('**__Song notes command structure:__** \n`.songnotes/.sn <group> soloist (<= only works for bts)`\n`.songnotes/.sn <group> uns (<= only works for svt)`\n-# Legend: <:nonrn:1344330008486740049> - **Non-renewed Song**')
             .addFields(
                 { name: '__BTS__', value: '`bangtan` or `bts`' },
                 { name: '__Tomorrow X Together__', value: '`tubatu` or `txt`' },
