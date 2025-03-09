@@ -121,14 +121,23 @@ module.exports = {
     const row = new ActionRowBuilder()
         .addComponents(
             new ButtonBuilder()
-                .setCustomId('previous')
-                .setLabel('◀️')
-                .setStyle(ButtonStyle.Secondary)
-                .setDisabled(true),
+            .setCustomId('first')
+            .setLabel('⏮️')
+            .setStyle(ButtonStyle.Secondary)
+            .setDisabled(true),
             new ButtonBuilder()
-                .setCustomId('next')
-                .setLabel('▶️')
-                .setStyle(ButtonStyle.Secondary)
+            .setCustomId('previous')
+            .setLabel('◀️')
+            .setStyle(ButtonStyle.Secondary)
+            .setDisabled(true),
+            new ButtonBuilder()
+            .setCustomId('next')
+            .setLabel('▶️')
+            .setStyle(ButtonStyle.Secondary),
+            new ButtonBuilder()
+            .setCustomId('last')
+            .setLabel('⏭️')
+            .setStyle(ButtonStyle.Secondary)
         );
 
         const bndmsg = await msg.channel.send({
@@ -140,14 +149,20 @@ module.exports = {
         const collector = bndmsg.createMessageComponentCollector({filter, time: 60000});
         collector.on('collect', async i => {
             try {
-                if (i.customId === 'previous') {
+                if (i.customId === 'first') {
+                    currentPage = 0;
+                } else if (i.customId === 'previous') {
                     currentPage--;
                 } else if (i.customId === 'next') {
                     currentPage++;
+                } else if (i.customId === 'last') {
+                    currentPage = pages.length-1;
                 }
-
+    
                 row.components[0].setDisabled(currentPage===0);
-                row.components[1].setDisabled(currentPage===pages.length-1);
+                row.components[1].setDisabled(currentPage===0);
+                row.components[2].setDisabled(currentPage===pages.length-1);
+                row.components[3].setDisabled(currentPage===pages.length-1);
 
                 bndembed
                     .setTitle(pages[currentPage].title)

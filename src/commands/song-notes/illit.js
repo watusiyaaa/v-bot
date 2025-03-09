@@ -32,6 +32,10 @@ async execute(msg, args) {
                 {
                     name: '**Cherish (My Love) | `lvl.13`**',
                     value: '__Short notes:__ `345` __Short length:__ `1:14`\n__Full notes:__ `994` __Full length:__ `2:56`'
+                },
+                {
+                    name: '**I\'ll Like You | `lvl.14`**',
+                    value: '__Short notes:__ `[no data yet]` __Short length:__ `[no data yet]`\n__Full notes:__ `900` __Full length:__ `2:07`'
                 }
             ]
         },
@@ -59,14 +63,23 @@ async execute(msg, args) {
     const row=new ActionRowBuilder()
     .addComponents(
         new ButtonBuilder()
-            .setCustomId('previous')
-            .setLabel('◀️')
-            .setStyle(ButtonStyle.Secondary)
-            .setDisabled(true),
+        .setCustomId('first')
+        .setLabel('⏮️')
+        .setStyle(ButtonStyle.Secondary)
+        .setDisabled(true),
         new ButtonBuilder()
-            .setCustomId('next')
-            .setLabel('▶️')
-            .setStyle(ButtonStyle.Secondary)
+        .setCustomId('previous')
+        .setLabel('◀️')
+        .setStyle(ButtonStyle.Secondary)
+        .setDisabled(true),
+        new ButtonBuilder()
+        .setCustomId('next')
+        .setLabel('▶️')
+        .setStyle(ButtonStyle.Secondary),
+        new ButtonBuilder()
+        .setCustomId('last')
+        .setLabel('⏭️')
+        .setStyle(ButtonStyle.Secondary)
     );
 
     const iltmsg = await msg.channel.send({
@@ -78,14 +91,20 @@ async execute(msg, args) {
     const collector = iltmsg.createMessageComponentCollector({ time: 60000 });
     collector.on('collect', async i => {
         try {
-            if (i.customId === 'previous') {
+            if (i.customId === 'first') {
+                currentPage = 0;
+            } else if (i.customId === 'previous') {
                 currentPage--;
             } else if (i.customId === 'next') {
                 currentPage++;
+            } else if (i.customId === 'last') {
+                currentPage = pages.length-1;
             }
 
             row.components[0].setDisabled(currentPage===0);
-            row.components[1].setDisabled(currentPage===pages.length-1);
+            row.components[1].setDisabled(currentPage===0);
+            row.components[2].setDisabled(currentPage===pages.length-1);
+            row.components[3].setDisabled(currentPage===pages.length-1);
 
             iltembed
                 .setTitle(pages[currentPage].title)

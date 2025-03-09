@@ -139,9 +139,6 @@ module.exports = {
             }
         ];
 
-
-
-
         let currentPage = 0;
 
         // Create embed with first page
@@ -157,6 +154,11 @@ module.exports = {
         const row = new ActionRowBuilder()
             .addComponents(
                 new ButtonBuilder()
+                    .setCustomId('first')
+                    .setLabel('⏮️')
+                    .setStyle(ButtonStyle.Secondary)
+                    .setDisabled(true),
+                new ButtonBuilder()
                     .setCustomId('previous')
                     .setLabel('◀️')
                     .setStyle(ButtonStyle.Secondary)
@@ -164,6 +166,10 @@ module.exports = {
                 new ButtonBuilder()
                     .setCustomId('next')
                     .setLabel('▶️')
+                    .setStyle(ButtonStyle.Secondary),
+                new ButtonBuilder()
+                    .setCustomId('last')
+                    .setLabel('⏭️')
                     .setStyle(ButtonStyle.Secondary)
 
             );
@@ -180,15 +186,20 @@ module.exports = {
 
         collector.on('collect', async i => {
             try {
-                if (i.customId === 'previous') {
+                if (i.customId === 'first') {
+                    currentPage = 0;
+                } else if (i.customId === 'previous') {
                     currentPage--;
                 } else if (i.customId === 'next') {
                     currentPage++;
+                } else if (i.customId === 'last') {
+                    currentPage = pages.length-1;
                 }
-
-                // Update button states
-                row.components[0].setDisabled(currentPage === 0);
-                row.components[1].setDisabled(currentPage === pages.length - 1);
+    
+                row.components[0].setDisabled(currentPage===0);
+                row.components[1].setDisabled(currentPage===0);
+                row.components[2].setDisabled(currentPage===pages.length-1);
+                row.components[3].setDisabled(currentPage===pages.length-1);
 
                 // Update embed with new page
                 njembed
