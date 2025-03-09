@@ -86,14 +86,14 @@
           } else {
               await interaction.reply({
                   content: 'This command is prefix command only.',
-                  ephemeral: true
+                  flags: [MessageFlags.Ephemeral]
               });
           }
       } catch (error) {
           console.error('There has been an error', error);
           await interaction.reply({
               content: 'Now im the dum dum, i somehow failed to execute the command.',
-              ephemeral: true
+              flags: [MessageFlags.Ephemeral]
           });
       }
   });
@@ -130,7 +130,7 @@
           console.error('There has been an error', error);
           await msg.reply({
               content: 'Now im the dum dum, i somehow failed to execute the command.',
-              ephemeral: true
+              flags: [MessageFlags.Ephemeral]
           });
       }
   });
@@ -166,7 +166,7 @@
           console.error('There has been an error', error);
           Message.channel.send({
               content: 'It has failed to send the notification to the admin.',
-              ephemeral: true
+              flags: [MessageFlags.Ephemeral]
           });
       }
   });
@@ -246,27 +246,27 @@
           if (!rr) {
               return interaction.reply({
                   content: 'Role not found dumbass!!',
-                  ephemeral: true
+                  flags: [MessageFlags.Ephemeral]
               });
           }
           if (rrMember.roles.cache.has(rrID)) {
               await rrMember.roles.remove(rr);
               return interaction.reply({
                   content: `<:rizz:1339527760711782431> <@${rrMember.id}>, I removed this role in your profile: **${rr.name}**`,
-                  ephemeral: true
+                  flags: [MessageFlags.Ephemeral]
               });
           } else {
               await rrMember.roles.add(rr);
               return interaction.reply({
                   content: `<:rizz:1339527760711782431> <@${rrMember.id}>, I added this role in your profile: **${rr.name}**`,
-                  ephemeral: true
+                  flags: [MessageFlags.Ephemeral]
               });
           }
       } catch (error) {
           console.error('Now im the dum dum. There has been a error when trying to add or remove a role:', error);
           return interaction.reply({
               content: '<:rizzcri:1339527910414880778> Sorry im a dum dum. i failed to assign your role :((',
-              ephemeral: true
+              flags: [MessageFlags.Ephemeral]
           });
       }
   });
