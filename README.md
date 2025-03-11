@@ -34,5 +34,8 @@ prefix is period (.) but you can change this again
  - songnotes/sn: Provides Rhythm Hive's song notes and lenghts
  - maintenance (ADMIN ONLY): Sets the bot to maintenance mode.
 
+ * **Type** only command
+  - reqs: Sends the server's verification requirements again (this is in case someone needed it)
+
  For any concerns or suggestions, contact me in Discord!
    -- watusiyaaa --
