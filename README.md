@@ -20,7 +20,7 @@ It has 2 Phases:
 1. **Phase 1**: When a user sends a message in the verification channel, the bot notifies the admin channel with an embed linking to the actual message. 
 2. **Phase 2**: When an admin reacts to the message with the specified emoji, the bot assigns the verified role to the user and sends a welcome message in the general chat.
 
-#### Commands (so far)
+### Commands (so far)
 
 prefix is period (.) but you can change this again
 
