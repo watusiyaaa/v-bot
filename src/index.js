@@ -71,10 +71,18 @@
       if (!interaction.isCommand()) return;
   
       if (config.getMaintenanceMode() && interaction.commandName !== 'maintenance') {
-          return interaction.reply({
-              content: 'The bot is currently under maintenance. Please try again later.',
-              ephemeral: true
-          });
+          const maintembed = new EmbedBuilder()
+            .setColor('#CDF7F6')
+            .setTitle('⚠️ Bot\'s under maintenance!')
+            .setDescription('V bot\'s currently under maintenance. Use the commands once finished.')
+            .addFields({ name: 'Reason', value: config.getMaintenanceReason() })
+            .setTimestamp(new Date());
+
+        return interaction.reply({
+            embeds: [maintembed],
+            allowedMentions: {repliedUser: false},
+            ephemeral: true
+        });
       }
   
       const cmd = user.commands.get(interaction.commandName);
@@ -103,10 +111,17 @@
       if (msg.author.bot) return;
   
       if (config.getMaintenanceMode() && !msg.content.startsWith(`${prefix}maintenance`)) {
-          return msg.channel.send({
-              content: 'The bot is currently under maintenance. Please try again later.',
-              ephemeral: true
-          });
+        const maintembed = new EmbedBuilder()
+        .setColor('#CDF7F6')
+        .setTitle('⚠️ Bot\'s under maintenance!')
+        .setDescription('V bot\'s currently under maintenance. Wait for a while before using the commands.')
+        .addFields({ name: 'Reason', value: config.getMaintenanceReason() })
+        .setTimestamp(new Date());
+
+    return msg.reply({
+        embeds: [maintembed],
+        allowedMentions: {repliedUser: false}
+    });
       }
   
       //type only cmd
