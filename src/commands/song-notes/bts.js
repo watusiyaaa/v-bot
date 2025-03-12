@@ -41,7 +41,7 @@ module.exports={
                     value: '__Short notes:__ `538` __Short length:__ `1:35`\n__Full notes:__ `1317` __Full length:__ `3:44`'
                 },
                 {
-                    name: '*Coffee | `lvl.13`**',
+                    name: '**Coffee | `lvl.13`**',
                     value: '__Short notes:__ `570` __Short length:__ `1:35`\n__Full notes:__ `1411` __Full length:__ `3:44`'
                 },
                 {
