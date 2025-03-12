@@ -35,7 +35,7 @@ async execute(msg, args) {
                 },
                 {
                     name: '**I\'ll Like You | `lvl.14`**',
-                    value: '__Short notes:__ `[no data yet]` __Short length:__ `[no data yet]`\n__Full notes:__ `900` __Full length:__ `2:07`'
+                    value: '__Short notes:__ `364` __Short length:__ `0:57`\n__Full notes:__ `900` __Full length:__ `2:07`'
                 }
             ]
         },
