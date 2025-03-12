@@ -1,6 +1,6 @@
 /* the main file, things to remember:
   - all of the js files under src folder will be imported on this file, so that i will only be executing this file
-  - index.js logic functions: verification protocol and role function */
+  - index.js logic functions: verification protocol, maintenance finction and role function */
 
   const { Client, Events, GatewayIntentBits, EmbedBuilder, Collection, MessageFlags, Message } = require('discord.js');
   const env = require('dotenv');
