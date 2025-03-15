@@ -36,6 +36,7 @@ prefix is period (.) but you can change this again
 
  * **Type** only command
   - reqs: Sends the server's verification requirements again (this is in case someone needed it)
+  - ping: pinging the bot with its latency
 
  For any concerns or suggestions, contact me in Discord!
    -- watusiyaaa --

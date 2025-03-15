@@ -9,6 +9,7 @@
   const register = require('./commands/commands');
   const status = require('./botstatus');
   const config = require('./config');
+  const tcmd = require('./typecmd');
   
   env.config();
   
@@ -125,10 +126,7 @@
       }
   
       //type only cmd
-      if (msg.content === 'reqs') {
-          const tcmd = require('./typecmd');
-          tcmd.run(msg); return;
-      }
+      tcmd.run(msg);
   
       //prefix cmd
       if (!msg.content.startsWith(prefix)) return;
