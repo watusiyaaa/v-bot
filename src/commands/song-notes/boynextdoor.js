@@ -105,7 +105,11 @@ module.exports = {
                     {
                         name: '**Call Me | `lvl.12`**',
                         value: '__Short notes:__ `369` __Short length:__ `1:12`\n__Full notes:__ `1018` __Full length:__ `2:58`'
-                    }
+                    },
+                    {
+                        name: '**Nice Guy (English Ver.) | `lvl.13`**',
+                        value: '__Short notes:__ `291` __Short length:__ `0:56`\n__Full notes:__ `1034` __Full length:__ `2:44`'
+                    },
                 ]
             }
         ];

@@ -241,27 +241,26 @@ module.exports={
                     name: '**XO (Only If You Say Yes) | `lvl.14`**',
                     value: '__Short notes:__ `439` __Short length:__ `1:15`\n__Full notes:__ `1300` __Full length:__ `3:09`'
                 },
-
                 {
                     name: '**Hundred Broken Hearts | `lvl.13`**',
                     value: '__Short notes:__ `442` __Short length:__ `1:23`\n__Full notes:__ `1269` __Full length:__ `3:22`'
                 },
-
                 {
                     name: '**Highway 1009 | `lvl.12`**',
                     value: '__Short notes:__ `331` __Short length:__ `1:01`\n__Full notes:__ `1009` __Full length:__ `2:55`'
                 },
-
                 {
                     name: '**Brought The Heat Back | `lvl.15`**',
                     value: '__Short notes:__ `383` __Short length:__ `0:56`\n__Full notes:__ `1329` __Full length:__ `2:57`'
                 },
-
                 {
                     name: '**Moonstruck | `lvl.12`**',
                     value: '__Short notes:__ `213` __Short length:__ `0:51`\n__Full notes:__ `824` __Full length:__ `2:39`'
                 },
-                
+                {
+                    name: '**Your Eyes Only | `lvl.12`**',
+                    value: '__Short notes:__ `224` __Short length:__ `0:49`\n__Full notes:__ `811` __Full length:__ `2:20`'
+                },
             ]
         },
         {

@@ -21,7 +21,11 @@ async execute(msg, args) {
                 {
                     name: '**Lucky Girl Syndrome | `lvl.15`**',
                     value: '__Short notes:__ `375` __Short length:__ `0:57`\n__Full notes:__ `1062` __Full length:__ `2:20`'
-                }
+                },
+                {
+                    name: '**My World | `lvl.12`**',
+                    value: '__Short notes:__ `279` __Short length:__ `0:56`\n__Full notes:__ `585` __Full length:__ `1:47`'
+                },
             ]
         },
         {

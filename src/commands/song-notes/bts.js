@@ -687,6 +687,10 @@ module.exports={
                     name: '**FRI(END)S | `lvl.13`**',
                     value: '__Short notes:__ `207` __Short length:__ `0:52`\n__Full notes:__ `871` __Full length:__ `2:28`'
                 },
+                {
+                    name: '**Winter Ahead (with PARK HYO SHIN) | `lvl.11`**',
+                    value: '__Short notes:__ `376` __Short length:__ `1:24`\n__Full notes:__ `1100` __Full length:__ `3:54`'
+                },
             ]
         },
         {

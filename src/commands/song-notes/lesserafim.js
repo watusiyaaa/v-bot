@@ -175,7 +175,11 @@ async execute(msg, args) {
                 {
                     name: '**CRAZY (David Guetta Remix) | `lvl.17`**',
                     value: '__Short notes:__ `746` __Short length:__ `1:14`\n__Full notes:__ `1900` __Full length:__ `2:54`'
-                }
+                },
+                {
+                    name: '**Perfect Night (for FEARNOT) | `lvl.14`**',
+                    value: '__Short notes:__ `505` __Short length:__ `1:06`\n__Full notes:__ `1321` __Full length:__ `2:41`'
+                },
             ]
         }
     ];
