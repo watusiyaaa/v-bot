@@ -1,5 +1,5 @@
 // alias
-const { SlashCommandBuilder, EmbedBuilder, AllowedMentionsTypes } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -22,7 +22,9 @@ module.exports = {
                 { name: '__Le Sserafim__', value: '`lesserafim` or `lsf`' },
                 { name: '__Newjeans__', value: '`newjeans`, `nj`, or `njz`' },
                 { name: '__Boynextdoor__', value: '`boynextdoor` or `bnd`' },
-                { name: '__Illit__', value: '`illit` or `ilt`' }
+                { name: '__Illit__', value: '`illit` or `ilt`' },
+                { name: '\u200B', value: '──────────────────────────────────────────────', inline: false },
+                { name: '`In case you want to also know the notes for Easy to Hard...`', value: '*Press this [**link**](https://rhythmhive.fandom.com/wiki/Song_List) to visit the wiki <:uwu:1339528473936396350>*' }
             );
 
         await interaction.reply({ embeds: [alembed] });
@@ -41,7 +43,9 @@ module.exports = {
                 { name: '__Le Sserafim__', value: '`lesserafim` or `lsf`' },
                 { name: '__Newjeans__', value: '`newjeans`, `nj`, or `njz`' },
                 { name: '__Boynextdoor__', value: '`boynextdoor` or `bnd`' },
-                { name: '__Illit__', value: '`illit` or `ilt`' }
+                { name: '__Illit__', value: '`illit` or `ilt`' },
+                { name: '\u200B', value: '──────────────────────────────────────────────', inline: false },
+                { name: '`In case you want to also know the notes for Easy to Hard...`', value: '*Press this [**link**](https://rhythmhive.fandom.com/wiki/Song_List) to visit the wiki <:uwu:1339528473936396350>*' }
             );
         await alpr.reply({
             embeds: [alembed],

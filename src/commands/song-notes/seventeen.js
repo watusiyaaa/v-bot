@@ -203,6 +203,10 @@ module.exports={
                 footer: 'Page 9/23',
                 fields: [
                     { 
+                        name: '**Second Life | `lvl.12`**',	
+                        value: '__Short notes:__ `363` __Short length:__ `1:12`\n__Full notes:__ `1059` __Full length:__ `3:22`' 
+                    },
+                    { 
                         name: '**Lucky | `lvl.14`**',	
                         value: '__Short notes:__ `343` __Short length:__ `0:57`\n__Full notes:__ `1318` __Full length:__ `3:17`' 
                     },
@@ -494,7 +498,10 @@ module.exports={
                 thumbnail: 'https://media.discordapp.net/attachments/1341215784327843980/1346087726650228810/198704184437_Cover.png?ex=67c6e963&is=67c597e3&hm=ad60391068231557ee708222fa97f39842e57a3d1684f07270065cea9222581d&=&format=webp&quality=lossless&width=663&height=663',
                 footer: 'Page 19/23',
                 fields: [
- 
+                    { 
+                        name: '**Eyes on you | `lvl.15`**',	
+                        value: '__Short notes:__ `409` __Short length:__ `0:57`\n__Full notes:__ `1434` __Full length:__ `2:54`' 
+                    },
                     { 
                         name: '**Water | `lvl.15`**',	
                         value: '__Short notes:__ `423` __Short length:__ `0:58`\n__Full notes:__ `1159` __Full length:__ `2:31`' 

@@ -473,12 +473,16 @@ module.exports={
                     value: '__Short notes:__ `505` __Short length:__ `1:32`\n__Full notes:__ `1393` __Full length:__ `4:00`'
                 },
                 {
-                    name: '**<:nonrn:1344330008486740049> Blue & Grey | `lvl.4`**',
-                    value: '__Short notes:__ `666` __Short length:__ `2:30`\n__Full notes:__ `1174` __Full length:__ `4:15`'
+                    name: '**Blue & Grey | `lvl.11`**',
+                    value: '__Short notes:__ `732` __Short length:__ `2:30`\n__Full notes:__ `1301` __Full length:__ `4:15`'
                 },
                 {
                     name: '**Fly To My Room | `lvl.13`**',
                     value: '__Short notes:__ `345` __Short length:__ `1:13`\n__Full notes:__ `1325` __Full length:__ `3:42`'
+                },
+                {
+                    name: '**Stay | `lvl.13`**',
+                    value: '__Short notes:__ `319` __Short length:__ `1:06`\n__Full notes:__ `1218` __Full length:__ `3:25`'
                 },
             ]
         },
@@ -633,7 +637,7 @@ module.exports={
         },
         {
             title: '**Solo: `Jimin`**',
-            thumbnail: 'https://media.discordapp.net/attachments/1341215784327843980/1345665131777356083/Gk8-BV3X0AACw9j.jpg?ex=67c55fd0&is=67c40e50&hm=11ed3736c0fded3e1727a73e80fa633b4405840ed7d45b8e4f06b446c54ab11e&=&format=webp&width=424&height=424',
+            thumbnail: 'https://media.discordapp.net/attachments/1341215784327843980/1345665131677356083/Gk8-BV3X0AACw9j.jpg?ex=67eee710&is=67ed9590&hm=8522586d52920f787ea4cfec7309cdc23e83e751364ab7d869c076ba1e8fdf34&=&format=webp&width=424&height=424',
             footer: 'Page 5/7',
             fields:[
                 {

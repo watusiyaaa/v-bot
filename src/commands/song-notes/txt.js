@@ -314,6 +314,10 @@ module.exports={
                         name: '**Heaven | `lvl.12`**',
                         value: '__Short notes:__ `266` __Short length:__ `1:01`\n__Full notes:__ `958` __Full length:__ `2:34`'
                     },
+                    {
+                        name: '**Resist (Not Gonna Run Away) | `lvl.14`**',
+                        value: '__Short notes:__ `319` __Short length:__ `1:05`\n__Full notes:__ `947` __Full length:__ `2:09`'
+                    },
                 ]
             },
             {
