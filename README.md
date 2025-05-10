@@ -1,6 +1,8 @@
 # V Bot
 Thank you for using V bot! Its designed to enhance your server experience with various commands and functionalities. It includes features for user verification, role management, song notes, and more.
 
+---
+
 ## Getting Started
 
 Use the following commands to get started:
