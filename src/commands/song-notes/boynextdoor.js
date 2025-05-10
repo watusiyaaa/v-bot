@@ -3,8 +3,6 @@
 const {
   EmbedBuilder,
   ActionRowBuilder,
-  ButtonBuilder,
-  ButtonStyle,
   StringSelectMenuBuilder,
 } = require("discord.js");
 
@@ -18,7 +16,6 @@ module.exports = {
         title: "**WHO!**",
         thumbnail:
           "https://media.discordapp.net/attachments/1341215784327843980/1341815500686233660/196922402067_Cover.jpg?ex=67b75e91&is=67b60d11&hm=e897c15a2bb614173220d5c5289cb5900700da546be5278c7bc9a94433c09e42&=&format=webp&width=662&height=662",
-        footer: "Page 1/4",
         fields: [
           {
             name: "**But I Like You | `lvl.12`**",
@@ -46,7 +43,6 @@ module.exports = {
         title: "**WHY...**",
         thumbnail:
           "https://media.discordapp.net/attachments/1341215784327843980/1341820012234805428/196922595776_Cover.jpg?ex=67b762c4&is=67b61144&hm=bb15e0d9207f268313e68711c4e5a28479a1af50e09e48ecdc601fb4ba0e071a&=&format=webp&width=662&height=662",
-        footer: "Page 2/4",
         fields: [
           {
             name: "**But Sometimes | `lvl.11`**",
@@ -69,7 +65,6 @@ module.exports = {
         title: "**HOW?**",
         thumbnail:
           "https://media.discordapp.net/attachments/1341215784327843980/1341820027602604032/196922852268_Cover.jpg?ex=67b762c8&is=67b61148&hm=fa166cf1e840c7e1dff60ad20f80bc2e9b48d66cc17ab2171313603e15f6b6b2&=&format=webp&width=662&height=662",
-        footer: "Page 3/4",
         fields: [
           {
             name: "**Earth, Wind and Fire | `lvl.17`**",
@@ -107,7 +102,6 @@ module.exports = {
         title: "**19.99**",
         thumbnail:
           "https://media.discordapp.net/attachments/1341215784327843980/1341820045940097167/198704113956_Cover.jpg?ex=67b762cc&is=67b6114c&hm=b44db8625db836a3c46ce009997d76b5e6252fbe3179947373ef162345904244&=&format=webp&width=662&height=662",
-        footer: "Page 4/4",
         fields: [
           {
             name: "**Nice Guy | `lvl.13`**",
@@ -138,6 +132,18 @@ module.exports = {
             name: "**Nice Guy (English Ver.) | `lvl.13`**",
             value:
               "__Short notes:__ `291` __Short length:__ `0:56`\n__Full notes:__ `1034` __Full length:__ `2:44`",
+          },
+        ],
+      },
+      {
+        title: "**IF I SAY I LOVE YOU**",
+        thumbnail:
+          "https://media.discordapp.net/attachments/1341215784327843980/1370686678439825479/198704289064_Cover.png?ex=682066f2&is=681f1572&hm=1ddcc6b2ba38b8633a2c0d990f630a0764684cb3afa5f3ad12053bd913f14efa&=&format=webp&quality=lossless&width=930&height=930",
+        fields: [
+          {
+            name: "**IF I SAY I LOVE YOU | `lvl.12`**",
+            value:
+              "__Short notes:__ `313` __Short length:__ `1.02`\n__Full notes:__ `960` __Full length:__ `2:41`",
           },
         ],
       },
