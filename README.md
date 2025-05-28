@@ -7,14 +7,19 @@ Thank you for using V bot! Its designed to enhance your server experience with v
 
 Use the following commands to get started:
 
-Terminal: This bot is using Node.js, so download the following dependencies:
+Terminal: This bot is using Node.js (Download this first ofc), so download the following dependencies:
 - discord.js (VERY IMPORTANT obviously)
 - nodemon
 - dotenv
 
-You can then run this bot by using 'npm run serve' (you can change the word "serve" with another word)
+#### For running the bot
+- `(Windows)` You must have Git Installed in your PC. Then set your default shell into *Git Bash*. In case you're using VSC, open a new Terminal first > go to the dropdown button next to the `+` icon > **Select Default Profile** > then choose Git Bash.  
+- I made a `.sh` file so that instead of typing `npm run serve` you will just type **./start.sh** instead
+- But make sure that the .sh file is executable first, just type `chmod +x start.sh`
 
-### Main Function - Verification Protocol
+---
+
+## Main Function - Verification Protocol
 
 Its main function is to give user a role letting them access the whole server with just a reaction (you can add as many emojis as you want). You can use this for verification purposes.
 
