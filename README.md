@@ -7,15 +7,15 @@ Thank you for using V bot! Its designed to enhance your server experience with v
 
 Use the following commands to get started:
 
-Terminal: This bot is using Node.js (Download this first ofc), so download the following dependencies:
+Terminal: This bot is using Node.js (Download this first ofc), then download the following dependencies:
 - discord.js (VERY IMPORTANT obviously)
 - nodemon
 - dotenv
 
 #### For running the bot
-- `(Windows)` You must have Git Installed in your PC. Then set your default shell into *Git Bash*. In case you're using VSC, open a new Terminal first > go to the dropdown button next to the `+` icon > **Select Default Profile** > then choose Git Bash.  `(No need to do this step if you're on Mac or Linux)`
+- `(Windows)` You must have Git Installed in your PC `(No need to do this part if you're on Mac or Linux)`. Then set your default shell into *Git Bash*. In case you're using VSC, open a new Terminal first > go to the dropdown button next to the `+` icon > **Select Default Profile** > then choose Git Bash.
 - I made a `.sh` file so that instead of typing `npm run serve` you will just type **./start.sh** instead
-- But make sure that the .sh file is executable first, just type `chmod +x start.sh`
+- But make sure that the .sh file is executable first, just type `chmod +x start.sh` at the terminal.
 
 ---
 
