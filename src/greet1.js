@@ -48,7 +48,7 @@ module.exports.sendGreet = async function (channel, member) {
   );
 
   const i2 = new TextDisplayBuilder().setContent(
-    `- Set your preferred roles by clicking the **__Set Roles__** button below.\n-# **IMPORTANT:** Make sure that you get the <@&1335171077042733137> to access the Leaks Category`
+    `- Set your preferred roles by clicking the **__Set Roles__** button below.\n-# **IMPORTANT:** Make sure that you get the __leak updates__ role to access the Leaks Category`
   );
 
   const conclusion = new TextDisplayBuilder().setContent(
