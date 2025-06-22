@@ -15,9 +15,11 @@ const env = require("dotenv");
 const fs = require("fs");
 const path = require("path");
 const register = require("./commands/commands");
+const newGreet = require("./greet1");
 const status = require("./botstatus");
 const config = require("./config");
 const tcmd = require("./typecmd");
+const greet1 = require("./greet1");
 
 env.config();
 
@@ -261,33 +263,8 @@ user.on(Events.MessageReactionAdd, async (react, user) => {
   if (!genchat || !genchat.isTextBased()) return;
 
   //greeting message for the user. greet js must be the same
-  const greetembed = new EmbedBuilder()
-    .setColor("#CDF7F6")
-    .setAuthor({
-      name: "✅ Verification Successful!",
-      iconURL: react.message.guild?.iconURL({ size: 512 }) ?? "",
-    })
-    .setTitle("**ᴄᴏᴢʏ ʀʜ ᴄᴀꜰᴇ 🍓 server**")
-    .setDescription(
-      `**Welcome to the server <@${unvUser.id}>!**
-          \n\nMake sure to read the <#1335169467424178266> and get your <#1335169556594823198> in these respective channels.
-          \nHope you enjoy your stay in the server!`
-    )
-    .setThumbnail(unvUser.displayAvatarURL({ size: 512 }))
-    .setImage(
-      "https://media.discordapp.net/attachments/1335172660182646927/1339065138589732915/greet_gif.gif?ex=67ad5d17&is=67ac0b97&hm=cd7e5417333194473cfb73a1eb087f2016d6867a5253241d3981c1b04982e936&=&width=622&height=346"
-    )
-    .setFooter({
-      text: `You're our ${
-        react.message.guild
-          ? getOrdinalSuffix(react.message.guild.memberCount)
-          : "unknown"
-      } member!`,
-    })
-    .setTimestamp(new Date());
-
   try {
-    await genchat.send({ embeds: [greetembed] });
+    await newGreet.sendGreet(genchat, unvMember);
   } catch (error) {
     return;
   }
