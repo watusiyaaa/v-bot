@@ -19,7 +19,6 @@ const newGreet = require("./greet1");
 const status = require("./botstatus");
 const config = require("./config");
 const tcmd = require("./typecmd");
-const greet1 = require("./greet1");
 
 env.config();
 
@@ -262,7 +261,7 @@ user.on(Events.MessageReactionAdd, async (react, user) => {
   const genchat = react.message.guild?.channels.cache.get(genID);
   if (!genchat || !genchat.isTextBased()) return;
 
-  //greeting message for the user. greet js must be the same
+  // greet message | new greet message to integrate components (greet1.js)
   try {
     await newGreet.sendGreet(genchat, unvMember);
   } catch (error) {
@@ -317,9 +316,3 @@ user.on(Events.InteractionCreate, async (interaction) => {
 });
 
 user.login(process.env.V_BOT_TOKEN);
-
-function getOrdinalSuffix(n) {
-  const s = ["th", "st", "nd", "rd"],
-    v = n % 100;
-  return n + (s[(v - 20) % 10] || s[v] || s[0]);
-}
