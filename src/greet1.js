@@ -44,7 +44,7 @@ module.exports.sendGreet = async function (channel, member) {
   );
 
   const i1 = new TextDisplayBuilder().setContent(
-    `- Be mindful of our **__Rules!__ Please click the button to go to our Rules channel.**.\n`
+    `- Be mindful of our **__Rules!__** Please click the button to go to our Rules channel.\n`
   );
 
   const i2 = new TextDisplayBuilder().setContent(
