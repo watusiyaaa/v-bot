@@ -33,19 +33,21 @@ const user = new Client({
   ],
 });
 
-/* This block of code is responsible for dynamically loading and registering commands for the Discord
-bot. Here's a breakdown of what it does: */
+/* The code snippet `user.commands = new Collection(); const prefix = "."; const cmdP =
+path.join(__dirname, "commands"); console.log("Loading commands from:", cmdP);` is setting up the
+necessary variables and collections for handling commands in a Discord bot. */
 user.commands = new Collection();
 const prefix = ".";
 const cmdP = path.join(__dirname, "commands");
-console.log("Loading commands from:", cmdP);
+// console.log("Loading commands from:", cmdP);
 
-/* This block of code is responsible for dynamically loading and registering commands for the Discord
-bot. Here's a breakdown of what it does: */
+/* The `cmdF` constant is being assigned the result of reading the contents of a directory
+synchronously using `fs.readdirSync`. The `{ withFileTypes: true }` option is used to include the
+file type information in the result. */
 const cmdF = fs.readdirSync(cmdP, { withFileTypes: true }).flatMap((dirent) => {
   if (dirent.isDirectory()) {
     const subDir = path.join(cmdP, dirent.name);
-    console.log("Loading commands from subdirectory:", subDir);
+    // console.log("Loading commands from subdirectory:", subDir);
     return fs
       .readdirSync(subDir)
       .filter((file) => file.endsWith(".js"))
@@ -56,16 +58,17 @@ const cmdF = fs.readdirSync(cmdP, { withFileTypes: true }).flatMap((dirent) => {
     : [];
 });
 
-/* This block of code is responsible for dynamically loading and registering commands for the Discord
-bot. Here's a breakdown of what it does: */
-console.log("Found command files:", cmdF);
+// console.log("Found command files:", cmdF);
 
+/* This block of code is iterating over each file in the `cmdF` array, which contains the list of
+command files found in the specified directory. For each file, it constructs the full path by
+joining the base command path (`cmdP`) with the file name. */
 for (const file of cmdF) {
   const fullPath = path.join(cmdP, file);
-  console.log("Loading command from:", fullPath);
+  // console.log("Loading command from:", fullPath);
   const cmd = require(fullPath);
   user.commands.set(cmd.name, cmd);
-  console.log(`Registered command: ${cmd.name}`);
+  // console.log(`Registered command: ${cmd.name}`);
 }
 
 status(user); //importing the status function
@@ -273,10 +276,6 @@ user.on(Events.MessageReactionAdd, async (react, user) => {
 // button reaction role protocol
 user.on(Events.InteractionCreate, async (interaction) => {
   if (!interaction.isButton()) return;
-
-  // ignoring songnotes buttons
-  if (["first", "previous", "next", "last"].includes(interaction.customId))
-    return;
 
   try {
     const rrID = interaction.customId;
