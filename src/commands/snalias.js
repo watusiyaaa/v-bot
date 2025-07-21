@@ -29,11 +29,6 @@ module.exports = {
           name: "\u200B",
           value: "──────────────────────────────────────────────",
           inline: false,
-        },
-        {
-          name: "`In case you want to also know the notes for Easy to Hard...`",
-          value:
-            "*Press this [**link**](https://rhythmhive.fandom.com/wiki/Song_List) to visit the wiki <:uwu:1339528473936396350>*",
         }
       );
 
@@ -60,11 +55,6 @@ module.exports = {
           name: "\u200B",
           value: "──────────────────────────────────────────────",
           inline: false,
-        },
-        {
-          name: "`In case you want to also know the notes for Easy to Hard...`",
-          value:
-            "*Press this [**link**](https://rhythmhive.fandom.com/wiki/Song_List) to visit the wiki <:uwu:1339528473936396350>*",
         }
       );
     await alpr.reply({
