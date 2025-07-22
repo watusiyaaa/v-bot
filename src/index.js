@@ -34,16 +34,14 @@ const user = new Client({
 });
 
 /* The code snippet `user.commands = new Collection(); const prefix = "."; const cmdP =
-path.join(__dirname, "commands"); console.log("Loading commands from:", cmdP);` is setting up the
-necessary variables and collections for handling commands in a Discord bot. */
+path.join(__dirname, "commands"); console.log("Loading commands from:", cmdP);` is setting up the necessary variables and collections for handling commands in a Discord bot. */
 user.commands = new Collection();
 const prefix = ".";
 const cmdP = path.join(__dirname, "commands");
 // console.log("Loading commands from:", cmdP);
 
 /* The `cmdF` constant is being assigned the result of reading the contents of a directory
-synchronously using `fs.readdirSync`. The `{ withFileTypes: true }` option is used to include the
-file type information in the result. */
+synchronously using `fs.readdirSync`. The `{ withFileTypes: true }` option is used to include the file type information in the result. */
 const cmdF = fs.readdirSync(cmdP, { withFileTypes: true }).flatMap((dirent) => {
   if (dirent.isDirectory()) {
     const subDir = path.join(cmdP, dirent.name);
@@ -60,8 +58,7 @@ const cmdF = fs.readdirSync(cmdP, { withFileTypes: true }).flatMap((dirent) => {
 
 // console.log("Found command files:", cmdF);
 
-/* This block of code is iterating over each file in the `cmdF` array, which contains the list of
-command files found in the specified directory. For each file, it constructs the full path by
+/* This block of code is iterating over each file in the `cmdF` array, which contains the list of command files found in the specified directory. For each file, it constructs the full path by
 joining the base command path (`cmdP`) with the file name. */
 for (const file of cmdF) {
   const fullPath = path.join(cmdP, file);
@@ -73,8 +70,7 @@ for (const file of cmdF) {
 
 status(user); //importing the status function
 
-/* This block of code is handling the initialization and shutdown process of the Discord bot. Here's
-what each part does: */
+/* This block of code is handling the initialization and shutdown process of the Discord bot. */
 user.once("ready", () => {
   console.log(`Loading... ${user.user.tag} is now online.`);
   register(user);
@@ -223,8 +219,7 @@ user.on(Events.MessageCreate, async (ntfy) => {
   }
 });
 
-/* verification protocol PHASE 2: if the admin reacted to the message, the bot will gave the user the role, 
-  giving them access to the server */
+/* verification protocol PHASE 2: if the admin reacted to the message, the bot will gave the user the role, giving them access to the server */
 user.on(Events.MessageReactionAdd, async (react, user) => {
   if (user.bot) return;
   if (react.message.channel.id !== process.env.VERIFY_CHANNEL) return;
