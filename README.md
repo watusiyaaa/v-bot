@@ -17,8 +17,8 @@ Terminal: This bot is using Node.js (Download this first ofc), then download the
 
 #### For running the bot
 - `(Windows)` You must have Git Installed in your PC `(No need to do this part if you're on Mac or Linux)`. Then set your default shell into *Git Bash*. In case you're using VSC, open a New Terminal first > go to the dropdown button next to the `+` icon > **Select Default Profile** > then choose Git Bash.
-- I created a `.sh` file so that instead of typing `npm run serve` you will just type **./start.sh** instead
-- But make sure that the .sh file is executable first, just type `chmod +x start.sh` at the terminal.
+- I created a `.sh` file so that instead of typing `npm run serve` you will just type **./deploy.sh** instead
+- But make sure that the .sh file is executable first, just type `chmod +x deploy.sh` at the terminal.
 > But if you don't want this method you can just go with `npm run serve`
 
 ##### `(Optional)` Setting Git Bash as your Terminal (or any Terminal you want) for this Workspace
