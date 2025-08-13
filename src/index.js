@@ -151,7 +151,7 @@ user.on(Events.MessageCreate, async (msg) => {
   }
 
   //type only cmd
-  tcmd.run(msg);
+  tcmd.run(msg, user);
 
   //prefix cmd
   if (!msg.content.startsWith(prefix)) return;
