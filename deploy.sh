@@ -5,4 +5,4 @@
 #npm i
 #npm rebuild
 #npm i
-npm run serve
+npm run vbot

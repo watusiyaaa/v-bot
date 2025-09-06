@@ -9,7 +9,6 @@ Use the following commands to get started:
 
 Terminal: This bot is using Node.js (Download this first ofc), then download the following dependencies:
 - discord.js (VERY IMPORTANT obviously)
-- nodemon
 - dotenv
 
 > Environment Variables:
@@ -17,12 +16,21 @@ Terminal: This bot is using Node.js (Download this first ofc), then download the
 
 #### For running the bot
 - `(Windows)` You must have Git Installed in your PC `(No need to do this part if you're on Mac or Linux)`. Then set your default shell into *Git Bash*. In case you're using VSC, open a New Terminal first > go to the dropdown button next to the `+` icon > **Select Default Profile** > then choose Git Bash.
-- I created a `.sh` file so that instead of typing `npm run serve` you will just type **./deploy.sh** instead
-- But make sure that the .sh file is executable first, just type `chmod +x deploy.sh` at the terminal.
-> But if you don't want this method you can just go with `npm run serve`
+- The bot has `deploy.sh`. Please type this command:`chmod +x deploy.sh` at the terminal to make it an executable first.
+- You can then type **./deploy.sh** to run the bot
+> But if you don't want this method you can just go with `npm run vbot`
 
 ##### `(Optional)` Setting Git Bash as your Terminal (or any Terminal you want) for this Workspace
 - Go [here](./more%20readmes/Workspace.md) for the detailed info.
+
+##### `(Optional)` Developing purposes
+- In case you wanna add or make changes of the bot in your own, I'd recommend installing **Nodemon** globally
+  - Installing globally means that you can use nodemon on your other projects
+```
+npm install -g nodemon
+```
+- Just type `nodemon` to run your bot. 
+> The benefit of using it is that you don't have to constantly manually type `node src/index.js` for example if you've put any changes on the codes. Nodemon will automatically run your bot once you've save your changes
 
 ---
 
@@ -52,6 +60,7 @@ prefix is period (.) but you can change this again
 > **Type** only command
   - reqs: Sends the server's verification requirements again (this is in case someone needed it)
   - ping: pinging the bot with its latency
+  - guides: Links for Rhythm Hive guides (uses components v2)
 
  For any concerns or suggestions, contact me in Discord!
    -- watusiyaaa --
