@@ -5,11 +5,12 @@ Thank you for using V bot! Its designed to enhance your server experience with v
 
 ## Getting Started
 
-Use the following commands to get started:
-
-Terminal: This bot is using Node.js (Download this first ofc), then download the following dependencies:
-- discord.js (VERY IMPORTANT obviously)
+Bot Dependencies:
+- discord.js
 - dotenv
+- express
+
+Use the following commands to get started:
 
 > Environment Variables:
 - Go [here](./more%20readmes/Env.md) for the detailed info.
