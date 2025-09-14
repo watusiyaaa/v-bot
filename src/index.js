@@ -19,6 +19,7 @@ const newGreet = require("./greet1");
 const status = require("./botstatus");
 const config = require("./config");
 const tcmd = require("./typecmd");
+const keepAlive = require("./keep-alive");
 
 env.config();
 
@@ -309,4 +310,6 @@ user.on(Events.InteractionCreate, async (interaction) => {
   }
 });
 
+// for keep-alive function
+keepAlive();
 user.login(process.env.V_BOT_TOKEN);
