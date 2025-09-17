@@ -49,7 +49,7 @@ module.exports = {
         { name: "__Seventeen__", value: "`seventeen` or `svt`" },
         { name: "__Le Sserafim__", value: "`lesserafim` or `lsf`" },
         { name: "__Newjeans__", value: "`newjeans`, `nj`, or `njz`" },
-        { name: "__Boynextdoor__", value: "`boynextdoor` or `bnd`" },
+        { name: "__Boynextdoor__", value: "`boynextdoor`, `bnd` or `bonedo`" },
         { name: "__Illit__", value: "`illit` or `ilt`" },
         {
           name: "\u200B",

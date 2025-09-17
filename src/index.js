@@ -19,7 +19,6 @@ const newGreet = require("./greet1");
 const status = require("./botstatus");
 const config = require("./config");
 const tcmd = require("./typecmd");
-const keepAlive = require("./keep-alive");
 
 env.config();
 
@@ -72,7 +71,7 @@ for (const file of cmdF) {
 status(user); //importing the status function
 
 /* This block of code is handling the initialization and shutdown process of the Discord bot. */
-user.once("ready", () => {
+user.once("clientReady", () => {
   console.log(`Loading... ${user.user.tag} is now online.`);
   register(user);
 });
@@ -310,6 +309,4 @@ user.on(Events.InteractionCreate, async (interaction) => {
   }
 });
 
-// for keep-alive function
-keepAlive();
 user.login(process.env.V_BOT_TOKEN);

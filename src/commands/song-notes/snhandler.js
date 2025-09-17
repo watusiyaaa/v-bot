@@ -25,6 +25,7 @@ const songNotesCommands = {
   njz: newjeans,
   boynextdoor,
   bnd: boynextdoor,
+  bonedo: boynextdoor,
   illit,
   ilt: illit,
 };

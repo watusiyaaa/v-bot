@@ -182,6 +182,7 @@ const tcmd = {
       msg.channel.send("<:rizzcri:1339527910414880778> Sorry an error occured");
     }
   },
+  /*
   tws: async function (msg) {
     const header = new TextDisplayBuilder().setContent(`# TWS IS COMING`);
     const time = new TextDisplayBuilder().setContent(
@@ -207,7 +208,7 @@ const tcmd = {
       );
       msg.channel.send("<:rizzcri:1339527910414880778> Sorry an error occured");
     }
-  },
+  }, */
   // add more here in the future...
 };
 
