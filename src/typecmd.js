@@ -8,6 +8,7 @@ const {
   TextDisplayBuilder,
   SectionBuilder,
   MessageFlags,
+  MediaGalleryBuilder,
 } = require("discord.js");
 
 const path = require("path");
@@ -173,6 +174,32 @@ const tcmd = {
         components: [guideTitle, separator, s1, s2, s3, s4],
       });
       // console.log(`guides cmd succesfully executed`);
+    } catch (error) {
+      console.error(
+        "Now im the dum dum. There has been a error when sending this command: ",
+        error
+      );
+      msg.channel.send("<:rizzcri:1339527910414880778> Sorry an error occured");
+    }
+  },
+  tws: async function (msg) {
+    const header = new TextDisplayBuilder().setContent(`# TWS IS COMING`);
+    const time = new TextDisplayBuilder().setContent(
+      `> TWS will be available <t:1758160800:R>`
+    );
+    const pic = new MediaGalleryBuilder().addItems([
+      {
+        media: {
+          url: "https://media.discordapp.net/attachments/1335172660182646927/1417861779316543569/50bc81cc-37ca-4e66-bac6-e5add122d74d.jpg?ex=68cc062e&is=68cab4ae&hm=1fe1565f54310b23c6a45e0a45920450824ff8d226e4550902843b49b3d269b3&=&format=webp&width=919&height=306",
+        },
+      },
+    ]);
+
+    try {
+      msg.channel.send({
+        flags: MessageFlags.IsComponentsV2,
+        components: [pic, header, time],
+      });
     } catch (error) {
       console.error(
         "Now im the dum dum. There has been a error when sending this command: ",
