@@ -72,7 +72,7 @@ for (const file of cmdF) {
 status(user); //importing the status function
 
 /* This block of code is handling the initialization and shutdown process of the Discord bot. */
-user.once("ready", () => {
+user.once("clientReady", () => {
   console.log(`Loading... ${user.user.tag} is now online.`);
   register(user);
 });
