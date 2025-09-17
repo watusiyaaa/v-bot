@@ -1,5 +1,6 @@
 node_modules
 .env
-V bot.code-workspace
 .vscode
+keep-alive.js
 notes.txt
+V bot.code-workspace
